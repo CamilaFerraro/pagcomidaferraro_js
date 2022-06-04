@@ -1,0 +1,11 @@
+CAMBIOS HTML:
+
+-Cambié el título en todos los HTMLs;
+
+-Agregué key words y description en todos los HTMLs;
+
+-Hice html de confirmación de pedidos;
+
+-Formulario de contacto nuevo;
+
+-HTMLs nuevos de recetas e ingredientes.

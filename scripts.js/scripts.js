@@ -1,2 +1,2 @@
 let variable=0
-console.log ("hola mundo")
+console.log("Hola Mundo")

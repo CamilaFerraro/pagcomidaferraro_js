@@ -1,0 +1,29 @@
+.card{
+	margin: 2px;
+	background-color: transparent;
+	transition: all 1s;
+	filter: grayscale(100%);
+	width: 100px;
+    &:hover{
+        transform: scale(1.01, 1.01);
+        filter: grayscale(0%);
+	}
+}
+.fotosrecetatexto{
+	font-family:Arial, Helvetica, sans-serif;
+	margin: 50px;
+	font-size: x-large;
+}
+.recetatitulo{
+	font-size: larger;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+@include mobile{
+	.card{
+		align-items: $ac;
+		width:100%;
+		height:auto;
+	}
+}

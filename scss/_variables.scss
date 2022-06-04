@@ -1,0 +1,10 @@
+$cbc: #fff6f6;
+$bg: #d8b0fd;
+$ac: center;
+
+
+@mixin mobile{
+	@media screen and (max-width:600px){
+		@content
+	}
+}

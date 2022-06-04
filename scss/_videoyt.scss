@@ -1,0 +1,20 @@
+.video{
+    text-align: $ac;
+    width: 75%;
+    height: 350px;
+    margin: 10px;
+	align-items: $ac;
+    &:hover{
+        transform: scale(1.01, 1.01);
+	    transition: all 0.2s;
+    }
+    @include mobile{
+        .video{
+            width: 300px;
+            height: 200px;
+        }
+    }
+}
+.videoyt{
+    text-align: $ac;
+}

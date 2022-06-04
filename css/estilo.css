@@ -1,0 +1,132 @@
+footer {
+  margin: 10px;
+}
+
+body {
+  background-color: #d8b0fd;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+}
+
+.negocio {
+  text-align: center;
+}
+
+.card {
+  margin: 2px;
+  background-color: transparent;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  width: 100px;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.01, 1.01);
+          transform: scale(1.01, 1.01);
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+}
+
+.fotosrecetatexto {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 50px;
+  font-size: x-large;
+}
+
+.recetatitulo {
+  font-size: larger;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.carousel {
+  margin-bottom: 5%;
+}
+
+.carousel-caption {
+  color: black;
+  background-color: #fff6f6;
+  font-size: medium;
+  size: 50%;
+}
+
+.video {
+  text-align: center;
+  width: 75%;
+  height: 350px;
+  margin: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.video:hover {
+  -webkit-transform: scale(1.01, 1.01);
+          transform: scale(1.01, 1.01);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+@media screen and (max-width: 600px) {
+  .video .video {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+.videoyt {
+  text-align: center;
+}
+
+.info {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.textop {
+  margin: 50px;
+  text-align: center;
+}
+
+.form {
+  margin: 10px;
+  width: 60%;
+  margin-bottom: 50px;
+}
+
+.ciudad {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.confirm {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.confirm .data {
+  margin: 50px;
+}
+
+.confirm .data2 {
+  margin: 50px;
+}
+
+.boton a {
+  color: #ffffff;
+  text-decoration: none;
+}
+/*# sourceMappingURL=estilo.css.map */

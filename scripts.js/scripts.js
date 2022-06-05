@@ -1,2 +1,3 @@
-let variable = "hola"
-console.log(variable, 'dos')
+debugger
+
+let postre = prompt("Escriba el postre que desea pedir")

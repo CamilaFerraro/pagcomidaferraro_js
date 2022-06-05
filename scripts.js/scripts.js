@@ -1,2 +1,2 @@
-let variable=0
-console.log("Hola Mundo")
+let variable = "hola"
+console.log(variable, 'dos')

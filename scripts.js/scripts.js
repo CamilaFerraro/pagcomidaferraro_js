@@ -1,7 +1,7 @@
 
 //menu principal
 
-let menu = "Bienvenido a EliFerraros'Catering\n1. Ingresar Datos Cliente\n2. Ingresar Pedido\n3. Salir";
+let menu = "Bienvenido a 🍦Eli Ferraro's Catering🍦\n1. Ingresar Datos Cliente\n2. Ingresar Pedido\n3. Salir";
 let correrPrograma = true;
 
 do {
@@ -26,11 +26,11 @@ do {
 
 //Tomar datos del cliente
 
-function DatosCliente () {
+let nombre;
 
+function DatosCliente () {
    let nombre = prompt ("Ingresar Nombre y Apellido");  
-   let telefono = prompt ("Ingrese su numero de telefono");
-   
+   let telefono = prompt ("Ingrese su numero de telefono"); 
 }
 
 
@@ -86,3 +86,58 @@ function pedidoCliente() {
             }
     }while(correrPedido)
 }
+
+
+const productos = []
+const carrito = []
+
+class Producto {
+    constructor(id, nombre, precio) {
+        this.id = id
+        this.nombre = nombre
+        this.precio = precio
+    }
+    precioFinal() {
+        return parseFloat((this.precio).toFixed(2))
+    }
+} 
+
+function creoID(){
+    return parseInt(Math.random() * 10000)
+}
+
+function agregarProducto() {
+    let id = creoID()
+    let nombre = prompt("Ingresa el nombre del producto:")
+    let precio = parseInt(prompt("Ingresa el precio:"))
+        productos.push(new Producto(id, nombre, precio))
+}
+
+function listarProductos() {
+    console.table(productos)
+}
+
+function buscarProducto() {
+    let aBuscar = prompt("Ingrese el nombre del producto a buscar:").toUpperCase()
+    let resultado = productos.find((producto)=> producto.nombre.includes(aBuscar)) 
+    if (resultado !== undefined) {
+        console.clear()
+        console.table(resultado) 
+    }
+}
+
+
+
+function generadorAutomatico() {
+    productos.push(new Producto(1234, "Docena Alfajores de Maicena", 500))
+    productos.push(new Producto(2345, "Volcán de Chocolate", 200))
+    productos.push(new Producto(3456, "Mousse de Chocolate", 150))
+}
+generadorAutomatico()
+
+function calcularCarrito() {
+    console.clear()
+    let total = carrito.reduce((acc, producto)=> acc + producto.importe, 0)
+        console.log("TOTAL DEL CARRITO:", total)
+}
+

@@ -10,6 +10,8 @@ class Producto {
     precioFinal() {
         return parseFloat((this.precio).toFixed(2))
     }
+   
+    
 } 
 
 function creoID(){
@@ -24,32 +26,47 @@ function agregarProducto() {
 }
 
 function listarProductos() {
-    console.table(productos)
-    alert ("Los productos disponibles son: ", productos)
+    
+    let mensaje = ""
+    for(let x in productos) {
+        mensaje += productos[x].nombre +" " +productos[x].precio +"\n" 
+    }
+
+    alert ("Los productos disponibles son: \n" + mensaje )
 }
 
 function buscarProducto() {
-    let aBuscar = prompt("Ingrese el nombre del producto a buscar:").toUpperCase()
+    
+    let aBuscar = prompt("Ingrese el nombre del producto a buscar:")
+
+    //find devuelve la primera coincidencia.
+    //filter devuelve una lista de coincidencias.
     let resultado = productos.find((producto)=> producto.nombre.includes(aBuscar)) 
+    console.log(resultado)
+    let mensaje = ""
+    
+    mensaje = resultado.nombre +" " +resultado.precio +"\n" 
+    
+
+    debugger
+
     if (resultado !== undefined) {
-        console.clear()
-        console.table(resultado) 
+       
+        alert ("Resultado busqueda\n" + mensaje)
     }
 }
 
 function generadorAutomatico() {
-    productos.push(new Producto(1234, "Docena Alfajores de Maicena", 500))
-    productos.push(new Producto(2345, "Volcán de Chocolate", 200))
-    productos.push(new Producto(3456, "Mousse de Chocolate", 150))
+    productos.push(new Producto(1234, "Docena Alfajores de Maicena", 1200))
+    productos.push(new Producto(2345, "Volcán de Chocolate c/u", 200))
+    productos.push(new Producto(3456, "Mousse de Chocolate c/u", 180))
 }
 generadorAutomatico()
 
-function generarCarrito() {
-    carrito.push(new Producto(1234, "NOTEBOOK EXO E17", 29950))
-    carrito.push(new Producto(2345, "MACBOOK AIR 13", 249900))
-    carrito.push(new Producto(3456, "LENOVO IDEAPAD 13", 199949))
+function generarCarrito(arrayProducto) {
+    carrito.push(arrayProducto)
 }
-generarCarrito()
+generarCarrito(productos [0]);
 
 function calcularCarrito() {
     console.clear()

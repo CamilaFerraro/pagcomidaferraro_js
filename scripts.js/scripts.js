@@ -36,7 +36,7 @@ function listarProductos() {
 }
 
 function buscarProducto() {
-    
+
     let aBuscar = prompt("Ingrese el nombre del producto a buscar:")
 
     //find devuelve la primera coincidencia.
@@ -52,7 +52,7 @@ function buscarProducto() {
 
     if (resultado !== undefined) {
        
-        alert ("Resultado busqueda\n" + mensaje)
+        alert ("Resultado de la búsqueda\n" + mensaje)
     }
 }
 

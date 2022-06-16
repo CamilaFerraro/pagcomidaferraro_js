@@ -69,8 +69,8 @@ function generarCarrito(arrayProducto) {
 generarCarrito(productos [0]);
 
 function calcularCarrito() {
-    console.clear()
-    let total = carrito.reduce((acc, producto)=> acc + producto.importe, 0)
+
+    let total = carrito.reduce((acc, producto)=> acc + producto.precio, 0)
         console.log("TOTAL DEL CARRITO:", total)
 }
 

@@ -166,6 +166,12 @@ body {
   margin-bottom: 50px;
 }
 
+.collection li {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: inline;
+  margin-left: 20px;
+}
+
 .demo-one {
   background-color: #ffffff;
 }

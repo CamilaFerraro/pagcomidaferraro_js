@@ -46,9 +46,6 @@ function buscarProducto() {
     let mensaje = ""
     
     mensaje = resultado.nombre +" " +resultado.precio +"\n" 
-    
-
-    debugger
 
     if (resultado !== undefined) {
        

@@ -42,11 +42,17 @@
         <p class="negocio">ELI FERRARO'S CATERING</p>
         <p class="textop">¡Pedí lo que más te guste completando el siguiente formulario y nos contactaremos con vos!</p> 
         <article class="container">
-            <div class="pedidosjs">PEDIDOS</div>
+            <div class="pedidosjs">POSTRES DISPONIBLES</div>
+            <ul class="collection" id="listadoPostres">
+                <li class="collection-item">Alfajores de Maicena</li>
+                <li class="collection-item">Volcán de Chocolate</li>
+                <li class="collection-item">Mousse de Chocolate</li>
+                <li class="collection-item">Panqueques de Dulce de Leche</li>
+            </ul>
             <section class="botones">
-                <button role="button" class="primary" onclick="listarProductos()">LISTAR PRODUCTOS</button>
-                <button role="button" class="secondary" onclick="buscarProducto()">BUSCAR PRODUCTO</button>
-                <button role="button" class="contrast" onclick="calcularCarrito()">CALCULAR CARRITO</button>
+                <button role="button" class="primary" id="btn1" onclick="listarProductos()">LISTAR POSTRES</button>
+                <button role="button" class="secondary" id="btn2" onclick="buscarProducto()">BUSCAR POSTRE</button>
+                <button role="button" class="contrast" id="btn3" onclick="calcularCarrito()">CALCULAR CARRITO</button>
             </section>
         </article>
         <section class="form">

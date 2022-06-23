@@ -74,3 +74,23 @@ function calcularCarrito() {
         console.log("TOTAL DEL CARRITO:", total)
 }
 
+titulo.innerText = "WWW.ELIFERRAROSCATERING.COM"
+slogan.innerText = "Los más ricos postres!!"
+
+var btn = document.getElementById('btn1');
+    primary = document.getElementById('primary');
+    contador = 0
+
+
+    function cambio(){
+    if (contador == 0){
+        primary.classList.add('change');
+        contador = 1;
+    }
+    else{
+        primary.classList.remove('change');
+        contador = 0
+    }
+
+}
+    btn.addEventListener('click',cambio, true)

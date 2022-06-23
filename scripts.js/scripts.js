@@ -74,23 +74,71 @@ function calcularCarrito() {
         console.log("TOTAL DEL CARRITO:", total)
 }
 
-titulo.innerText = "WWW.ELIFERRAROSCATERING.COM"
-slogan.innerText = "Los más ricos postres!!"
+//titulo.innerText = "WWW.ELIFERRAROSCATERING.COM"
+//slogan.innerText = "Los más ricos postres!!"
 
-var btn = document.getElementById('btn1');
-    primary = document.getElementById('primary');
-    contador = 0
+const btn = document.querySelector("#btn1")
 
 
-    function cambio(){
-    if (contador == 0){
-        primary.classList.add('change');
-        contador = 1;
+//btn.addEventListener('click',cambio, true)
+
+btn.addEventListener("click", (e) => {
+    
+    listarProductos()
+
+    let isActive = false
+
+    if(isActive) {
+
+        btn.classList.add("demo-one")
+        isActive = false
     }
-    else{
-        primary.classList.remove('change');
-        contador = 0
+    else {
+        btn.classList.remove("demo-one")
+        btn.classList.add("demo-two")
+        isActive = true
     }
 
-}
-    btn.addEventListener('click',cambio, true)
+})
+
+const btnOne = document.querySelector("#btn2")
+
+btnOne.addEventListener("click", (e) => {
+    
+    buscarProducto()
+
+    let isActive = false
+
+    if(isActive) {
+
+        btnOne.classList.add("demo-one")
+        isActive = false
+    }
+    else {
+        btnOne.classList.remove("demo-one")
+        btnOne.classList.add("demo-two")
+        isActive = true
+    }
+
+})
+
+const btnTwo = document.querySelector("#btn3")
+
+btnTwo.addEventListener("click", (e) => {
+    
+    calcularCarrito()
+
+    let isActive = false
+
+    if(isActive) {
+
+        btnTwo.classList.add("demo-one")
+        isActive = false
+    }
+    else {
+        btnTwo.classList.remove("demo-one")
+        btnTwo.classList.add("demo-two")
+        isActive = true
+    }
+
+})

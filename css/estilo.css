@@ -134,12 +134,24 @@ body {
   background-color: #ffffff;
 }
 
+.primary .change {
+  background-color: violet;
+}
+
 .secondary {
   background-color: #ffffff;
 }
 
+.secondary .change {
+  background-color: violet;
+}
+
 .contrast {
   background-color: #ffffff;
+}
+
+.contrast .change {
+  background-color: violet;
 }
 
 .pedidosjs {

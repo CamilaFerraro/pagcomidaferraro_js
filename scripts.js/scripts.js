@@ -27,17 +27,43 @@ function agregarProducto() {
 
 function listarProductos() {
     
+   
     let mensaje = ""
     for(let x in productos) {
-        mensaje += productos[x].nombre +" " +productos[x].precio +"\n" 
+        mensaje += productos[x].nombre + " " + productos[x].precio +"\n" 
     }
-
-    alert ("Los productos disponibles son: \n" + mensaje )
+    Swal.fire('LOS POSTRES DISPONIBLES SON: ' + mensaje)
 }
 
 function buscarProducto() {
+    (async () => {
 
-    let aBuscar = prompt("Ingrese el nombre del producto a buscar:")
+        const ipAPI = '//api.ipify.org?format=json'
+        
+        const inputValue = fetch(ipAPI)
+          .then(response => response.json())
+          .then(data => data.text)
+        
+        const { value: text } = await Swal.fire({
+          title: 'BUSCA TU POSTRE FAVORITO!',
+          input: 'text',
+          inputValue: inputValue,
+          inputPlaceholder: 'Escribe el postre a buscar',
+          showCancelButton: true,
+          inputValidator: (value) => {
+            if (!value) {
+              return 'DEBES ESCRIBIR ALGO!'
+            }
+        }
+    })
+    
+        
+        if (text) {
+          Swal.fire(`EL POSTRE ENCONTRADO ES ${text}`)
+        }
+    })()
+    
+    //let aBuscar = prompt("Ingrese el nombre del producto a buscar:")
 
     //find devuelve la primera coincidencia.
     //filter devuelve una lista de coincidencias.
@@ -45,7 +71,7 @@ function buscarProducto() {
     console.log(resultado)
     let mensaje = ""
     
-    mensaje = resultado.nombre +" " +resultado.precio +"\n" 
+    mensaje = resultado.nombre +" " + resultado.precio +"\n" 
 
     if (resultado !== undefined) {
        
@@ -139,3 +165,45 @@ btnTwo.addEventListener("click", (e) => {
     }
 
 })
+
+document.addEventListener("submit", (e)=> {
+    e.preventDefault()
+    guardarDatosDeUsr()
+   // alert (`Gracias por tu compra!! 🍫 @` + inputNombre.value + inputApellido.value)
+    Swal.fire(`Gracias por tu pedido!! 🍫 @` + inputNombre.value + inputApellido.value)
+})
+
+
+const inputNombre = document.querySelector("#nombre")
+const inputApellido = document.querySelector("#apellido")
+const inputTelefono = document.querySelector("#inputtelefono")
+const inputEmail = document.querySelector("#inputEmail4")
+const inputAddress = document.querySelector("#inputAddress")
+const btnSubmit = document.querySelector("#submit")
+
+let datosDeInput = ""
+
+function guardarDatosDeUsr() {
+    const datosDeUsr = {nombre: inputNombre.value,
+                        apellido: inputApellido.value,
+                        telefono: inputTelefono.value,
+                        email: inputEmail.value,
+                        address: inputAddress.value,
+
+    } 
+    let str = JSON.stringify(datosDeUsr)
+    localStorage.setItem("datosDeUsr", str)
+}
+
+function recuperoDatosDeUsr() {
+    if (localStorage.getItem("datosDeUsr")) {
+        const datosDeUsr = JSON.parse(localStorage.getItem("datosDeUsr"))
+            inputNombre.value = datosDeUsr.nombre
+            inputApellido.value = datosDeUsr.apellido
+            inputTelefono.value = datosDeUsr.telefono
+            inputEmail.value  = datosDeUsr.email
+            inputAddress.value = datosDeUsr.address
+    }    
+}
+recuperoDatosDeUsr()
+

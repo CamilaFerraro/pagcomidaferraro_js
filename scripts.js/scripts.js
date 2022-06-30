@@ -75,7 +75,7 @@ function buscarProducto() {
 
     if (resultado !== undefined) {
        
-        alert ("Resultado de la búsqueda\n" + mensaje)
+        Swal.fire ("Resultado de la búsqueda\n" + mensaje)
     }
 }
 
@@ -169,7 +169,7 @@ btnTwo.addEventListener("click", (e) => {
 document.addEventListener("submit", (e)=> {
     e.preventDefault()
     guardarDatosDeUsr()
-   // alert (`Gracias por tu compra!! 🍫 @` + inputNombre.value + inputApellido.value)
+   // alert (`Gracias por tu pedido!! 🍫 @` + inputNombre.value + inputApellido.value)
     Swal.fire(`Gracias por tu pedido!! 🍫 @` + inputNombre.value + inputApellido.value)
 })
 

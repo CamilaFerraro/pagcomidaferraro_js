@@ -1,0 +1,17 @@
+[
+    {
+       "nombre": "Alfajor de Maicena",
+       "categoria": "dulce",
+       "precioUnidad": "100"
+    },
+    {
+       "nombre": "Volcán de Chocolate",
+       "categoria": "dulce",
+       "precioUnidad": "200"
+    },
+    {
+       "nombre": "Mousse de Chocolate",
+       "categoria": "dulce",
+       "precioUnidad": "180"
+    }
+]

@@ -26,12 +26,12 @@ const retornoPostresError = ()=> {
             </div>`
  }
 
-fetch(URL)
+/*fetch(URL)
          .then((response)=> response.json() )
          .then( (data)=> {
             console.table(data)
         })
-
+*/
 const obtenerContenido = (URL)=> {
     let postreAmostrar = ""
         fetch(URL)
@@ -41,5 +41,4 @@ const obtenerContenido = (URL)=> {
                     postreAmostrar += retornoPostresContenido(contenido)
                 contenidoDOM.innerHTML = postreAmostrar
             })
-            .catch((error)=> contenidoDOM.innerHTML = retornoPostresError())
 }

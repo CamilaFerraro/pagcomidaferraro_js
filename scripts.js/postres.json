@@ -1,16 +1,19 @@
 [
     {
        "nombre": "Alfajor de Maicena",
+       "foto": "../fotos/foto alfajores.jpg",
        "categoria": "dulce",
        "precioUnidad": "100"
     },
     {
        "nombre": "Volcán de Chocolate",
+       "foto": "../fotos/foto volcan chocolate.jpg",
        "categoria": "dulce",
        "precioUnidad": "200"
     },
     {
        "nombre": "Mousse de Chocolate",
+       "foto": "../fotos/mousse chocolate.jpg",
        "categoria": "dulce",
        "precioUnidad": "180"
     }

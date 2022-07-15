@@ -1,14 +1,13 @@
 const contenidoDOM = document.querySelector("#contenido")
-const cargandoDOM = document.querySelector("#cargando")
 
-const URL = `../scripts.js/postres.json`
+const URL = `/scripts.js/postres.json`
 
-const retornoPostres = (contenido)=> {
-    const {nombre, categoria, precioUnidad} = contenido
+const retornoPostresContenido = (contenido)=> {
+    const {foto, nombre, categoria, precioUnidad} = contenido
     return `<div class="col s12 m6 l3">
                 <div class="card z-depth-2">
                     <div class="card-image">
-                       <img loading="lazy" nombre="${nombre}">
+                    <img loading="lazy" src="${foto}" title="${nombre}">
                     </div>
                     <div class="card-content black">
                        <p class="yellow-text">categoria: <span class="white-text">${categoria}</span></p>
@@ -17,6 +16,15 @@ const retornoPostres = (contenido)=> {
                 </div>
             </div>`
 }
+const retornoPostresError = ()=> {
+    return `<div class="center white-text"> 
+                <br><br><br><br> 
+                <h4>El postre parece no estar disponible.</h4> 
+                <br><br> 
+                <i class="large material-icons">sentiment_very_dissatisfied</i> 
+                <br><br> 
+            </div>`
+ }
 
 fetch(URL)
          .then((response)=> response.json() )
@@ -30,8 +38,8 @@ const obtenerContenido = (URL)=> {
             .then((response)=> response.json() )
             .then( (data)=> {
                 for (contenido of data)
-                    postreAmostrar += retornoPostres(contenido)
-                    contenidoDOM.innerHTML = postreAmostrar
-                })
-            .finally(()=> cargandoDOM.innerHTML = "")
+                    postreAmostrar += retornoPostresContenido(contenido)
+                contenidoDOM.innerHTML = postreAmostrar
+            })
+            .catch((error)=> contenidoDOM.innerHTML = retornoPostresError())
 }

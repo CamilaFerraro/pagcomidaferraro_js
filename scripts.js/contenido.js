@@ -37,7 +37,7 @@ const obtenerContenido = (URL)=> {
         fetch(URL)
             .then((response)=> response.json() )
             .then( (data)=> {
-                for (contenido of data)
+                for (let contenido of data)
                     postreAmostrar += retornoPostresContenido(contenido)
                 contenidoDOM.innerHTML = postreAmostrar
             })

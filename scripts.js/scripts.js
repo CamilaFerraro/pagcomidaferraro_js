@@ -1,5 +1,5 @@
 const productos = []
-const carrito = []
+//const carrito = []
 
 class Producto {
     constructor(id, nombre, precio) {
@@ -10,8 +10,6 @@ class Producto {
     precioFinal() {
         return parseFloat((this.precio).toFixed(2))
     }
-   
-    
 } 
 
 function creoID(){
@@ -25,154 +23,170 @@ function agregarProducto() {
         productos.push(new Producto(id, nombre, precio))
 }
 
-function listarProductos() {
-    
-   
-    let mensaje = ""
-    for(let x in productos) {
-        mensaje += productos[x].nombre + " " + productos[x].precio +"\n" 
-    }
-    Swal.fire('LOS POSTRES DISPONIBLES SON: ' + mensaje)
-}
-
-function buscarProducto() {
-    (async () => {
-
-        const ipAPI = '//api.ipify.org?format=json'
-        
-        const inputValue = fetch(ipAPI)
-          .then(response => response.json())
-          .then(data => data.text)
-        
-        const { value: text } = await Swal.fire({
-          title: 'BUSCA TU POSTRE FAVORITO!',
-          input: 'text',
-          inputValue: inputValue,
-          inputPlaceholder: 'Escribe el postre a buscar',
-          showCancelButton: true,
-          inputValidator: (value) => {
-            if (!value) {
-              return 'DEBES ESCRIBIR ALGO!'
-            }
-        }
-    })
-    
-        
-        if (text) {
-          Swal.fire(`EL POSTRE ENCONTRADO ES ${text}`)
-        }
-    })()
-    
-    //let aBuscar = prompt("Ingrese el nombre del producto a buscar:")
-
-    //find devuelve la primera coincidencia.
-    //filter devuelve una lista de coincidencias.
-    let resultado = productos.find((producto)=> producto.nombre.includes(aBuscar)) 
-    console.log(resultado)
-    let mensaje = ""
-    
-    mensaje = resultado.nombre +" " + resultado.precio +"\n" 
-
-    if (resultado !== undefined) {
-       
-        Swal.fire ("Resultado de la búsqueda\n" + mensaje)
-    }
-}
-
-function generadorAutomatico() {
+function generadorPostres() {
     productos.push(new Producto(1234, "Docena Alfajores de Maicena", 1200))
-    productos.push(new Producto(2345, "Volcán de Chocolate c/u", 200))
-    productos.push(new Producto(3456, "Mousse de Chocolate c/u", 180))
+    productos.push(new Producto(2345, "Volcán de Chocolate", 200))
+    productos.push(new Producto(3456, "Mousse de Chocolate", 180))
 }
-generadorAutomatico()
+generadorPostres()
 
-function generarCarrito(arrayProducto) {
-    carrito.push(arrayProducto)
-}
-generarCarrito(productos [0]);
-
-function calcularCarrito() {
-
-    let total = carrito.reduce((acc, producto)=> acc + producto.precio, 0)
-        console.log("TOTAL DEL CARRITO:", total)
-}
-
-//titulo.innerText = "WWW.ELIFERRAROSCATERING.COM"
-//slogan.innerText = "Los más ricos postres!!"
-
-const btn = document.querySelector("#btn1")
-
-
-//btn.addEventListener('click',cambio, true)
-
-btn.addEventListener("click", (e) => {
-    
-    listarProductos()
-
-    let isActive = false
-
-    if(isActive) {
-
-        btn.classList.add("demo-one")
-        isActive = false
+class Postre{
+    constructor(id, nombre, precio, cantidad){
+        this.id = id
+        this.nombre = nombre
+        this.precio = precio
+        this.cantidad = cantidad
     }
-    else {
-        btn.classList.remove("demo-one")
-        btn.classList.add("demo-two")
-        isActive = true
-    }
+}
+
+const Postre1 = new Postre(1234, "Docena Alfajores de Maicena", 1200)
+const Postre2 = new Postre(2345, "Volcán de Chocolate", 200)
+const Postre3 = new Postre(3456, "Mousse de Chocolate", 180)
+
+const arrayPostres = [Postre1, Postre2, Postre3]
+const arrayCarrito = [] 
+
+function listarPostres() {
+    arrayPostres.forEach( (Postre)=>{
+      const listado = `<tr>
+                        <td>${Postre.id}</td>
+                        <td>${Postre.nombre}</td>
+                        <td>${Postre.precio }</td>
+                        <td><button class="boton  btn btn-primary" id="${Postre.id}"> AGREGAR </button></td>
+                      </tr>`
+                    document.querySelector("tbody").innerHTML += listado  
+    });    
+
+}
+listarPostres()
+
+  const boton = document.querySelectorAll(".boton")
+
+  boton.forEach(elm => {
+    elm.addEventListener("click", (e) => {
+     let resultado = e.target.id
+     busquedaArray(resultado)
+    })
+ })
+
+ function busquedaArray(id){
+    let resultado = arrayPostres.filter(elm => elm.id == id)
+    console.log(resultado[0])
+    arrayCarrito.push(resultado[0])
+    renderizarCarrito(resultado)  
+  }
+
+  const carritoRenderizado = document.getElementById("listadoCarrito")
+
+  function renderizarCarrito(obj) {
+    obj.forEach(obj =>{
+      const listado = document.createElement("li")
+      listado.className = "listadoProductos"
+      listado.innerHTML += `${obj.nombre}<button type="button" class="btn btn-danger" id="${obj.id}">Eliminar</button>`
+      carritoRenderizado.appendChild(listado)
+    })
+  }
+
+  const botonEliminar = document.getElementsByClassName("btn-danger")
+
+
+  document.addEventListener("click", (e)=>{
+  if(e.target.classList.contains("btn-danger")){
+    busquedaArrayEliminar(e.target.id) }
 
 })
 
-const btnOne = document.querySelector("#btn2")
+  function trueFalsePostres(id) {
+    let comprobacionID = arrayPostres.find(elm => elm.id == id)
+    if (comprobacionID == undefined) {
+      
+    } else {
+      return trueFalse = true
+    }  
+}
+  
+function busquedaArrayEliminar(id){
+    let resultado = arrayCarrito.findIndex(elm => elm.id == id) 
+      arrayCarrito.splice(resultado, 1)
+      carritoRenderizado.removeChild(carritoRenderizado.children[resultado])
+      trueFalsePostres(id)
+}  
 
-btnOne.addEventListener("click", (e) => {
-    
-    buscarProducto()
 
-    let isActive = false
+const totalEnModal = document.getElementById("totalEnModal")
 
-    if(isActive) {
+function calcularCarrito(){
+    let total = arrayCarrito.reduce((acc, elemento) => acc + elemento.precio, 0)
+    const textoModal = document.createElement("p")
+    textoModal.innerText = "El total de sus postres elegidos en pesos es de: " + total
+    totalEnModal.appendChild(textoModal)
+}
 
-        btnOne.classList.add("demo-one")
-        isActive = false
+
+function PedidoExitoso() {
+    if(arrayCarrito.length != 0){
+      Swal.fire({
+        icon: "success",
+        title: "Postres cargados con éxito. Proceda a ingresar sus datos en el formulario de contacto",
+      })  
     }
-    else {
-        btnOne.classList.remove("demo-one")
-        btnOne.classList.add("demo-two")
-        isActive = true
-    }
+}
 
+const botonConfirmarPedido = document.getElementById("botonConfirmarPedido")
+  botonConfirmarPedido.addEventListener("click", ()=>{
+    if (arrayCarrito.length != 0) {
+      PedidoExitoso()  
+      carritoRenderizado.innerHTML = ""
+      totalEnModal.innerText = ""
+      arrayCarrito.splice(0, arrayCarrito.length)
+      return trueFalse = true
+    } else {
+      totalEnModal.innerText = ""
+      Swal.fire({
+        icon: "error",
+        title: "No hay productos seleccionados",
+      })
+    }
+   
+  })
+
+function borrarListado() {
+  carritoRenderizado.innerHTML = ""
+  totalEnModal.innerText = ""
+  
+}  
+const botonCancelar = document.getElementById("botonCancelar")
+botonCancelar.addEventListener("click", ()=>{
+   arrayCarrito.splice(0, arrayCarrito.length)
+   borrarListado()
+   return trueFalse = true
 })
 
-const btnTwo = document.querySelector("#btn3")
-
-btnTwo.addEventListener("click", (e) => {
-    
-    calcularCarrito()
-
-    let isActive = false
-
-    if(isActive) {
-
-        btnTwo.classList.add("demo-one")
-        isActive = false
-    }
-    else {
-        btnTwo.classList.remove("demo-one")
-        btnTwo.classList.add("demo-two")
-        isActive = true
-    }
-
+const botonCerrar = document.getElementById("botonCerrar")
+botonCerrar.addEventListener("click", ()=>{
+  arrayCarrito.splice(0, arrayCarrito.length)
+  borrarListado()
+  return trueFalse = true
 })
+
+const botonContinuar = document.getElementById("botonContinuar")
+botonContinuar.addEventListener("click", ()=>{
+  calcularCarrito()
+})
+
+  function busquedaArray(id){
+    let resultado = arrayPostres.filter(elm => elm.id == id)
+    console.log(resultado[0])
+    arrayCarrito.push(resultado[0])
+    renderizarCarrito(resultado)  
+  }
 
 document.addEventListener("submit", (e)=> {
     e.preventDefault()
     guardarDatosDeUsr()
-   // alert (`Gracias por tu pedido!! 🍫 @` + inputNombre.value + inputApellido.value)
+    //alert (`Gracias por tu pedido!! 🍫 @` + inputNombre.value + inputApellido.value)
     Swal.fire(`Gracias por tu pedido!! 🍫 @` + inputNombre.value + inputApellido.value)
 })
-
 
 const inputNombre = document.querySelector("#nombre")
 const inputApellido = document.querySelector("#apellido")
@@ -207,13 +221,4 @@ function recuperoDatosDeUsr() {
 }
 recuperoDatosDeUsr()
 
-/*fetch('https://dashboard.emailjs.com/admin'),
-{
-    method: 'POST',
-    body: JSON.stringify({
-        title: 'Formulario',
-        body: 'Tu Pedido'
-    })
-
-}*/
 

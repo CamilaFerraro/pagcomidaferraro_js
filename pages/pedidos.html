@@ -42,14 +42,38 @@
             <h1> <a href="../index.html"> <img src="../fotos/Logo.png" alt="LogoPag" title="EliFerrarosCatering" width="200px"> </a> </h1>   
         </div> 
         <p class="negocio">ELI FERRARO'S CATERING</p>
-        <p class="textop">¡Pedí lo que más te guste completando el siguiente formulario y nos contactaremos con vos!</p> 
-        <article class="container">
-            <section class="botones">
-                <button id="btn1" role="button" class="primary">LISTAR POSTRES</button>
-                <button id="btn2" role="button" class="secondary">BUSCAR POSTRE</button>
-                <button id="btn3" role="button" class="contrast">CALCULAR CARRITO</button>
-            </section>
-        </article>
+        <p class="textop">¡Pedí lo que más te guste y completando el siguiente formulario nos contactaremos con vos!</p> 
+        <h2 class="main_subtitle" style="text-align: center">Seleccione los postres que desea pedir</h2>
+        <section class="tabla">
+            <table id="table">
+                <tr>
+                    <th>ID</th>
+                    <th>POSTRE</th>
+                    <th>PRECIO</th>
+                </tr>
+            </table>
+        </section>
+        <ul id="listadoCarrito"> </ul>
+        <div class="divBotonContinuar">
+            <button type="button" class="btn btn-primary" id="botonContinuar" data-bs-toggle="modal" data-bs-target="#exampleModal">CONTINUAR</button>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">SELECCIÓN FINAL DE POSTRES</h5>
+                  <button type="button" class="btn-close" id="botonCerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="totalEnModal">
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="botonCancelar" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="botonConfirmarPedido" data-bs-dismiss="modal">Confirmar Pedido</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <section class="form">
             <form class="row g-3">
                 <div class="row-mb-5">
@@ -89,6 +113,10 @@
             </form>
         </section>
     </main>
+    <hr>
+    <div id="contenido" class="row center">
+        <!--contenido se carga desde la API-->
+    </div>
     <hr>
     <footer class="footer" data-store="footer">
         <div class="container p-top-half visible-when-content-ready">
@@ -137,9 +165,6 @@
                     </div>
                 </div>
            </div>
-        </div>
-        <div id="contenido" class="row center">
-            <!--contenido se carga desde la API-->
         </div>
     </footer>
     <script src="../scripts.js/contenido.js"></script>

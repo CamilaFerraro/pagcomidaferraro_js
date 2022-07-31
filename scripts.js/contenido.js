@@ -7,11 +7,11 @@ const retornoPostresContenido = (contenido)=> {
     return `<div class="col s12 m6 l3">
                 <div class="card z-depth-2">
                     <div class="card-image">
-                    <img loading="lazy" src="${foto}" title="${nombre}">
+                    <img loading="lazy" src="${foto}" title="${nombre}" width=500px>
                     </div>
                     <div class="card-content black">
-                       <p class="yellow-text">categoria: <span class="white-text">${categoria}</span></p>
-                       <p class="yellow-text">precioUnidad: <span class="white-text">${precioUnidad}</span></p>
+                       <p class="yellow-text" width=50px>Categoría: <span class="white-text" width=50%>${categoria}</span></p>
+                       <p class="yellow-text">Precio Unidad: <span class="white-text">${precioUnidad}</span></p>
                     </div>
                 </div>
             </div>`

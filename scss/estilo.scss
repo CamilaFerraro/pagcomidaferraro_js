@@ -2,6 +2,112 @@ footer{
 	margin: 10px;
 }
 
+.main_subtitle{
+    text-align: center;
+    font-size: large;
+}
+
+.tabla{
+    display: flex;
+    justify-content: center;
+	margin-top: 3%;
+    table {    
+        width: 50%;
+    }
+    tbody{
+        text-align: center;
+    
+    }
+    th {
+		border: solid 2px #8a2be2;
+        padding: 0.5rem;
+
+    }
+    tr {
+		border: solid 2px #8a2be2;
+        padding: 0.5rem;
+    }
+    td {
+		border: solid 2px #8a2be2;
+        padding: 0.5rem;
+    }
+
+}
+.modal-title{
+	text-align: center;
+	margin-left: 15%;
+}
+
+#botonContinuar{
+	align-items: center;
+	margin-left: 690px;
+    text-align: center;
+	margin-top: 8px;
+
+}
+
+#listadoCarrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%; 
+    font-size: large;
+    width: auto; 
+	margin: 5px;
+	text-align: left;
+}
+
+.btn-primary{
+    color: #ffffff;
+    border-radius: 0.3rem;
+	background-color: #8a2be2;
+	border-color:#890ffb;
+	border-width: 3px;
+	align-items: center;
+}
+
+.btn-primary:hover{
+    background-color: #d400ff;
+	border-color: #d400ff;
+}
+
+.listadoProductos{
+    color: black;
+    border-radius: 0.3rem;
+	border-color: #890ffb;
+	border-width: 3px;
+	margin: 8px;
+
+    .btn-danger{
+        margin-left: 50px;
+    }
+}
+
+.divBotonContinuar{
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+	align-content: center;
+}
+
+#botonContinuar{
+    width: 100%;
+    height: 3rem;
+}
+.botonPedir{
+    color: #ffffff;
+    border-radius: 0.3rem;
+	background-color: #8a2be2;
+	border-color:#890ffb;
+	border-width: 3px;
+	align-items: center;
+}
+.botonPedir:hover{
+    background-color: #d400ff;
+	border-color: #d400ff;
+}
+
+
 @import "variables";
 @import "body";
 @import "card";
